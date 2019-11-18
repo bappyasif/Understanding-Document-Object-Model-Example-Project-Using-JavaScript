@@ -1,3 +1,85 @@
+// Traversing D.O.M.
+var itemList = document.querySelector("#items");
+
+// Parent Node
+console.log(itemList.parentNode);
+
+itemList.parentNode.style.backgroundColor = "#f4f4f4";
+
+console.log(itemList.parentElement);
+
+console.log(itemList.parentNode.parentNode);
+
+console.log(itemList.parentElement.parentElement);
+
+// Child Nodes
+console.log(itemList.childNodes);
+
+console.log(itemList.children);
+
+console.log(itemList.children[1]);
+
+itemList.children[1].style.backgroundColor = "yellow";
+
+console.log(itemList.firstChild);
+
+console.log(itemList.firstElementChild);
+
+itemList.firstElementChild.textContent = "Oh Hello";
+
+itemList.lastElementChild.textContent = "For Real!!";
+
+console.log(itemList.lastChild);
+
+console.log(itemList.lastElementChild);
+
+// Next Sibling
+console.log(itemList.nextSibling);
+
+console.log(itemList.nextElementSibling);
+
+// Previous Sibling
+console.log(itemList.previousSibling);
+
+console.log(itemList.previousElementSibling);
+
+itemList.previousElementSibling.style.color = "red";
+
+itemList.previousElementSibling.textContent = "Items Here";
+
+// Create Element
+var createElement = document.createElement("div");
+
+//Add Class
+createElement.className = "hello_class";
+
+// Add ID
+createElement.id = "hello_01";
+
+// Add Attribute
+createElement.setAttribute("title", "Hello Title");
+
+// Create New Text Nodes
+var createNewDivText = document.createTextNode("Hello World!!");
+
+// Appending Node
+createElement.appendChild(createNewDivText);
+
+// Placing Within This D.O.M.
+var containerDiv = document.querySelector("header .container");
+var headerTag = document.querySelector("header h1");
+
+console.log(createElement);
+
+createElement.style.fontSize = "30px";
+
+createElement.style.fontWeight = "bold";
+
+createElement.style.color = "blue";
+
+containerDiv.insertBefore(createElement, headerTag);
+
+/*
 console.log("Hello DOM");
 
 console.dir(document);
@@ -58,7 +140,8 @@ li_items[2].style.backgroundColor = "green";
  var li_tags = document.getElementsByTagName("li");
 console.log(li_tags);
 console.log(li_tags[1]);
-li_tags[2].textContent = "Hello Bappy";
+li_tags[2].textCo
+ntent = "Hello Bappy";
 li_tags[2].style.fontWeight = "bold";
 li_tags[3].innerText="Hi Hello";
 li_tags[3].style.backgroundColor = "yellow";
@@ -104,3 +187,5 @@ for(let i = 0; i<oddItems.length; i++) {
     oddItems[i].style.backgroundColor = "#f4f4f4";
     evenItems[i].style.backgroundColor = "#ccc";
 }
+
+*/
