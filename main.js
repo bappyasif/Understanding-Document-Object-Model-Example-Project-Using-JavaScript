@@ -1,83 +1,154 @@
-// Traversing D.O.M.
-var itemList = document.querySelector("#items");
+// Mouse Events
+//var anotherButton = document.getElementById("button").addEventListener("click", runEvent);
+var anotherButton = document.getElementById("button");
 
-// Parent Node
-console.log(itemList.parentNode);
+anotherButton.addEventListener("click", runEvent);
+anotherButton.addEventListener("dblclick", runEvent);
 
-itemList.parentNode.style.backgroundColor = "#f4f4f4";
+anotherButton.addEventListener("mousedown", runEvent);
+anotherButton.addEventListener("mouseup", runEvent);
 
-console.log(itemList.parentElement);
+var box = document.getElementById("box");
 
-console.log(itemList.parentNode.parentNode);
+box.addEventListener("mouseenter", runEvent);
+box.addEventListener("mouseleave", runEvent);
 
-console.log(itemList.parentElement.parentElement);
+box.addEventListener("mouseover", runEvent);
+box.addEventListener("mouseout", runEvent);
+box.addEventListener("mousemove", runEvent);
 
-// Child Nodes
-console.log(itemList.childNodes);
+function runEvent(event) {
+    console.log("Event type :  "+event.type);
+    
+    output.innerHTML = "<h3>MouseX: "+event.offsetX+" </h3><h3>MouseY: "+event.offsetY+"</h3";
 
-console.log(itemList.children);
+    box.style.backgroundColor = "rgb("+event.offsetX+", "+event.offsetY+", 40)";
 
-console.log(itemList.children[1]);
+    document.body.style.backgroundColor = "rgb("+event.offsetX+", "+event.offsetY+", 40)"
+}
 
-itemList.children[1].style.backgroundColor = "yellow";
 
-console.log(itemList.firstChild);
+// Different Events
 
-console.log(itemList.firstElementChild);
+var button = document.getElementById("button");
 
-itemList.firstElementChild.textContent = "Oh Hello";
+button.addEventListener(("click"), buttonClicked);
 
-itemList.lastElementChild.textContent = "For Real!!";
+function buttonClicked(event) {
+    console.log("Button Clicked");
+    document.getElementById("header-title").textContent = "Header Changed";
+    document.querySelector("#main").style.backgroundColor = "#f4f4f4";
 
-console.log(itemList.lastChild);
+    console.log(event);
 
-console.log(itemList.lastElementChild);
+    console.log(event.target);
 
-// Next Sibling
-console.log(itemList.nextSibling);
+    console.log(event.target.id);
 
-console.log(itemList.nextElementSibling);
+    console.log(event.target.className);
 
-// Previous Sibling
-console.log(itemList.previousSibling);
+    console.log(event.target.classList);
 
-console.log(itemList.previousElementSibling);
+    var output = document.getElementById("output");
+    output.innerHTML = "<h3>"+event.target.id+"</h3>";
 
-itemList.previousElementSibling.style.color = "red";
+    console.log(event.type);
 
-itemList.previousElementSibling.textContent = "Items Here";
+    console.log(event.clientX);
 
-// Create Element
-var createElement = document.createElement("div");
+    console.log(event.clientY);
 
-//Add Class
-createElement.className = "hello_class";
+    console.log(event.offsetX);
 
-// Add ID
-createElement.id = "hello_01";
+    console.log(event.offsetY);
 
-// Add Attribute
-createElement.setAttribute("title", "Hello Title");
+    console.log(event.altKey);
+    console.log(event.ctrlKey);
+    console.log(event.shiftKey);
 
-// Create New Text Nodes
-var createNewDivText = document.createTextNode("Hello World!!");
+}
 
-// Appending Node
-createElement.appendChild(createNewDivText);
 
-// Placing Within This D.O.M.
-var containerDiv = document.querySelector("header .container");
-var headerTag = document.querySelector("header h1");
+// // Traversing D.O.M.
+// var itemList = document.querySelector("#items");
 
-console.log(createElement);
+// // Parent Node
+// console.log(itemList.parentNode);
 
-createElement.style.fontSize = "30px";
+// itemList.parentNode.style.backgroundColor = "#f4f4f4";
 
-createElement.style.fontWeight = "bold";
+// console.log(itemList.parentElement);
 
-createElement.style.color = "blue";
+// console.log(itemList.parentNode.parentNode);
 
-containerDiv.insertBefore(createElement, headerTag);
+// console.log(itemList.parentElement.parentElement);
+
+// // Child Nodes
+// console.log(itemList.childNodes);
+
+// console.log(itemList.children);
+
+// console.log(itemList.children[1]);
+
+// itemList.children[1].style.backgroundColor = "yellow";
+
+// console.log(itemList.firstChild);
+
+// console.log(itemList.firstElementChild);
+
+// itemList.firstElementChild.textContent = "Oh Hello";
+
+// itemList.lastElementChild.textContent = "For Real!!";
+
+// console.log(itemList.lastChild);
+
+// console.log(itemList.lastElementChild);
+
+// // Next Sibling
+// console.log(itemList.nextSibling);
+
+// console.log(itemList.nextElementSibling);
+
+// // Previous Sibling
+// console.log(itemList.previousSibling);
+
+// console.log(itemList.previousElementSibling);
+
+// itemList.previousElementSibling.style.color = "red";
+
+// itemList.previousElementSibling.textContent = "Items Here";
+
+// // Create Element
+// var createElement = document.createElement("div");
+
+// //Add Class
+// createElement.className = "hello_class";
+
+// // Add ID
+// createElement.id = "hello_01";
+
+// // Add Attribute
+// createElement.setAttribute("title", "Hello Title");
+
+// // Create New Text Nodes
+// var createNewDivText = document.createTextNode("Hello World!!");
+
+// // Appending Node
+// createElement.appendChild(createNewDivText);
+
+// // Placing Within This D.O.M.
+// var containerDiv = document.querySelector("header .container");
+// var headerTag = document.querySelector("header h1");
+
+// console.log(createElement);
+
+// createElement.style.fontSize = "30px";
+
+// createElement.style.fontWeight = "bold";
+
+// createElement.style.color = "blue";
+
+// containerDiv.insertBefore(createElement, headerTag);
 
 /*
 console.log("Hello DOM");
