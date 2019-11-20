@@ -1,3 +1,45 @@
+// Keyboard Events
+var itemInput = document.querySelector("input[type='text']");
+
+var formInput = document.querySelector("form");
+
+itemInput.addEventListener("keydown", keyboardEvent);
+
+itemInput.addEventListener("keyup", keyboardEvent);
+
+itemInput.addEventListener("keypress", keyboardEvent);
+
+itemInput.addEventListener("focus", keyboardEvent);
+
+itemInput.addEventListener("blur", keyboardEvent);
+
+itemInput.addEventListener("cut", keyboardEvent);
+
+itemInput.addEventListener("paste", keyboardEvent);
+
+itemInput.addEventListener("input", keyboardEvent);
+
+var selectInput = document.querySelector("select");
+
+selectInput.addEventListener("change", keyboardEvent);
+
+selectInput.addEventListener("input", keyboardEvent);
+
+formInput.addEventListener("submit", keyboardEvent);
+
+function keyboardEvent(event) {
+    
+    event.preventDefault();
+
+    console.log("Event Type : " +event.type);
+
+    //document.body.style.display = "none";
+
+    console.log(event.target.value);
+
+    document.getElementById("output").innerHTML = "<h3>"+event.target.value+"</h3>";
+}
+
 // Mouse Events
 //var anotherButton = document.getElementById("button").addEventListener("click", runEvent);
 var anotherButton = document.getElementById("button");
