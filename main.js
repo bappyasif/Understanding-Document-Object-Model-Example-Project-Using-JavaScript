@@ -2,8 +2,16 @@ var formElement = document.getElementById("addForm");
 
 var itemList = document.getElementById("items");
 
+var filterElemnt = document.getElementById("filter");
+
 // Form Add Submit Event
 formElement.addEventListener("submit", addItem);
+
+// Delete Event
+itemList.addEventListener("click", removeItem);
+
+//Filter Event
+filterElemnt.addEventListener("keyup", filterItems);
 
 function addItem(event) {
     event.preventDefault();
@@ -38,4 +46,35 @@ function addItem(event) {
 
     // Append Li Item To List
     itemList.appendChild(li_Element);
+}
+
+function removeItem(event) {
+    //console.log(event);
+
+    if(event.target.classList.contains("delete")) {
+        //console.log(2);
+        if(confirm("You Sure About This")) {
+            var li_child = event.target.parentElement;
+            itemList.removeChild(li_child);
+        }
+    }
+}
+
+function filterItems(event) {
+    // convert text to lowercase
+    var convertedText = event.target.value.toLowerCase();
+    //console.log(convertedText);
+    // Get Li's
+    var items = itemList.getElementsByTagName('li');
+    //console.log(items);
+    // Collection Array
+    Array.from(items).forEach(function(item) {
+        var itemName = item.firstChild.textContent;
+        //console.log(itemName);
+        if(itemName.toLowerCase().indexOf(convertedText) != -1) {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+    });
 }
